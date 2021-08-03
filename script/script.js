@@ -14,32 +14,31 @@ let month;
 let accumulatedMonth;
 let target;
 let budgetDay;
-let showTypeOf;
 let getStatusInHome;
 
 const sum = function getExpensesMonth(a,b){
   return Number(a) + Number(b);
 };
-amount = sum(amount1, amount2);
 
 const diff = function getAccumulatedMonth(c,d){
   return Number(c) - Number(d);
 };
-month = diff(money, amount);
-accumulatedMonth= month;
 
 const spl = function getTargetMonth(f,g){
   return Math.ceil(Number(f) / Number(g));
 };
-target = spl(mission, accumulatedMonth);
 
-showTypeOf = function (data){
+const showTypeOf = function (data){
   console.log(data, typeof(data));
 };
 showTypeOf(money);
 showTypeOf(income);
 showTypeOf(deposit);
 
+amount = sum(amount1, amount2);
+month = diff(money, amount);
+accumulatedMonth= month;
+target = spl(mission, accumulatedMonth);
 budgetDay = Math.floor(accumulatedMonth / 30);
 
 getStatusInHome = function(){
