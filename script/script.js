@@ -9,39 +9,26 @@ let expenses1 = prompt('Введите обязательную статью р�
 let amount1 = prompt('Во сколько это обойдется?', '100');
 let expenses2 = prompt('Введите обязательную статью расходов', 'food');
 let amount2 = prompt('Во сколько это обойдется?', '50');
-let amount;
-let month;
 let accumulatedMonth;
-let target;
 let budgetDay;
-let getStatusInHome;
 
-const sum = function getExpensesMonth(a,b){
-  return Number(a) + Number(b);
+const getExpensesMonth = function (){
+  return Number(amount1) + Number(amount2);
 };
 
-const diff = function getAccumulatedMonth(c,d){
-  return Number(c) - Number(d);
+const getAccumulatedMonth = function (){
+  return money - getExpensesMonth();
 };
 
-const spl = function getTargetMonth(f,g){
-  return Math.ceil(Number(f) / Number(g));
+const getTargetMonth = function (){
+  return Math.ceil(mission / accumulatedMonth());
 };
 
 const showTypeOf = function (data){
   console.log(data, typeof(data));
 };
-showTypeOf(money);
-showTypeOf(income);
-showTypeOf(deposit);
 
-amount = sum(amount1, amount2);
-month = diff(money, amount);
-accumulatedMonth= month;
-target = spl(mission, accumulatedMonth);
-budgetDay = Math.floor(accumulatedMonth / 30);
-
-getStatusInHome = function(){
+const getStatusInHome = function(){
 if(budgetDay >= 1200) {
   return('У вас очень высокий доход');
 } else if(budgetDay >= 600){ 
@@ -51,9 +38,16 @@ if(budgetDay >= 1200) {
 } 
 };
 
-console.log('Сумма всех обязательных расходов за месяц:', amount);
-console.log('Накопления за месяц (Доходы минус расходы):', month);
-console.log('За какой период будет достигнута цель, месяцев: ', target);
+showTypeOf(money);
+showTypeOf(income);
+showTypeOf(deposit);
+
+accumulatedMonth= getAccumulatedMonth;
+budgetDay = Math.floor(accumulatedMonth() / 30);
+
+console.log('Сумма всех обязательных расходов за месяц:', getExpensesMonth());
+console.log('Накопления за месяц (Доходы минус расходы):', getAccumulatedMonth());
+console.log('За какой период будет достигнута цель, месяцев: ', getTargetMonth());
 console.log('budgetDay: ', budgetDay);
 console.log('Уровень дохода: ', getStatusInHome());
 console.log(addExpenses.split(', '));
