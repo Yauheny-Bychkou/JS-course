@@ -1,19 +1,14 @@
 'use strict';
 
-let addExpenses;
-let deposit;
-let accumulatedMonth;
-let budgetDay;
 let money; 
-let sum;
 let i;
-let expensesAmount;
 let expenses1;
 let amount;
 let expenses2;
 let amount2;
 let div;
 let appData;
+let key;
 
 const isNumber = function (n){
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -27,7 +22,6 @@ const start = function(){
  return money;
 };
 
-start();
 
 appData = {
   income: {},
@@ -41,8 +35,8 @@ appData = {
   deposit: false,
   mission: 1000000,
   asking: function(){
-        addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую', 'taxi, food');
-        appData.addExpenses = addExpenses.split(', ');
+        appData.addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+        appData.addExpenses = appData.addExpenses.split(', ');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
         for(i=0; i < 2; i++){
         expenses1 = prompt('Введите обязательную статью расходов', 'taxi'); 
@@ -76,21 +70,27 @@ appData = {
   getStatusInHome: function(){
     if(appData.budgetDay >= 1200) {
   return('У вас очень высокий доход');
-} else if(budgetDay >= 600){ 
+} else if(appData.budgetDay >= 600){ 
   return('У вас средний уровень дохода');
-} else if(budgetDay >= 0){ 
+} else if(appData.budgetDay >= 0){ 
   return('К сожалению у вас уровень дохода ниже среднего');
 } 
   }
 };
 
+start();
+appData.budget = money;
 appData.asking();
-expensesAmount= appData.getExpensesMonth();
+appData.getExpensesMonth();
+appData.getBudget();
 
 
-console.log(appData);
+
 console.log('Сумма всех обязательных расходов за месяц:', appData.expensesMonth);
-console.log('Накопления за месяц (Доходы минус расходы):', appData.budgetMonth);
 console.log(appData.getTargetMonth());
-console.log('budgetDay: ', appData.budgetDay);
 console.log('Уровень дохода: ', appData.getStatusInHome());
+console.log('Наша программа включает в себя данные:');
+
+for (key in appData){
+  console.log(key +' '+ appData[key]);
+}
