@@ -1,14 +1,7 @@
 'use strict';
 
 let money; 
-let i;
-let expenses1;
-let amount;
-let expenses2;
-let amount2;
-let div;
 let appData;
-let key;
 
 const isNumber = function (n){
   return !isNaN(parseFloat(n)) && isFinite(n);
@@ -22,7 +15,6 @@ const start = function(){
  return money;
 };
 
-
 appData = {
   income: {},
   addIncome: [],
@@ -35,11 +27,12 @@ appData = {
   deposit: false,
   mission: 1000000,
   asking: function(){
+        let amount;
         appData.addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
         appData.addExpenses = appData.addExpenses.split(', ');
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
-        for(i=0; i < 2; i++){
-        expenses1 = prompt('Введите обязательную статью расходов', 'taxi'); 
+        for(let i=0; i < 2; i++){
+        let expenses1 = prompt('Введите обязательную статью расходов', 'taxi'); 
         do{
         amount = +prompt('Во сколько это обойдется?', '100');     
         }
@@ -60,7 +53,7 @@ appData = {
   },
 
   getTargetMonth: function(){
-    div = Math.ceil(appData.mission / appData.budgetMonth);
+    let div = Math.ceil(appData.mission / appData.budgetMonth);
   if (div > 0){
     return "Цель будет достигнута за, месяцев: "+ div;
   } else {
@@ -84,13 +77,11 @@ appData.asking();
 appData.getExpensesMonth();
 appData.getBudget();
 
-
-
 console.log('Сумма всех обязательных расходов за месяц:', appData.expensesMonth);
 console.log(appData.getTargetMonth());
 console.log('Уровень дохода: ', appData.getStatusInHome());
 console.log('Наша программа включает в себя данные:');
 
-for (key in appData){
+for (let key in appData){
   console.log(key +' '+ appData[key]);
 }
