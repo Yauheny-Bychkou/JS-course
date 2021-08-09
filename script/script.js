@@ -61,12 +61,12 @@ appData = {
           start();
          appData.income[itemIncome] = cashIncome;
        }
-
         let expenses1;
         let amount;
-        
+        let words;
         appData.addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
         appData.addExpenses = appData.addExpenses.split(', ');
+
         
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
          
@@ -162,7 +162,8 @@ appData.getInfoDeposit();
 console.log('Сумма всех обязательных расходов за месяц:', appData.expensesMonth);
 console.log(appData.getTargetMonth());
 console.log('Уровень дохода: ', appData.getStatusInHome());
-console.log('appData.addExpenses', appData.addExpenses.join(', ' + ' '));
+console.log('appData.addExpenses', appData.addExpenses.map(n => `${n[0].toUpperCase()}${n.slice(1)}`).join(', '));
+
 console.log('Наша программа включает в себя данные:');
 
 
