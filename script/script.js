@@ -184,7 +184,7 @@ appData.getBudget();
 appData.getInfoDeposit();
 
 
-console.log('Сумма всех обязательных расходов за месяц:', appData.expensesMonth);
+console.log('Сумма всех обязательных расходов за месяцц:', appData.expensesMonth);
 console.log(appData.getTargetMonth());
 console.log('Уровень дохода: ', appData.getStatusInHome());
 console.log('appData.addExpenses', appData.addExpenses.map(n => `${n[0].toUpperCase()}${n.slice(1)}`).join(', '));
