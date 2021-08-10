@@ -6,14 +6,15 @@ const buttonCalculation = document.getElementById('start');
 const buttonPlusOne = document.getElementsByTagName('button')[0];
 const buttonPlusTwo = document.getElementsByTagName('button')[1];
 const checkbox = document.querySelector('#deposit-check');
-const incomeItem = document.querySelectorAll('.additional_income-item');
-const inputBudgetDay = document.getElementsByClassName('budget_day-value');
-const inputExpensesMonth = document.getElementsByClassName('expenses_month-value');
-const inputAdditionalIncome = document.getElementsByClassName('additional_income-value');
-const inputAdditionalExpenses = document.getElementsByClassName('additional_expenses-value');
-const inputIncomePeriod = document.getElementsByClassName('income_period-value');
-const inputTargetMonth = document.getElementsByClassName('target_month-value');
-const inputBudgetMonth = document.querySelector('.budget_month-value');
+const incomeItemOne = document.querySelectorAll('.additional_income-item')[1];
+const incomeItemTwo = document.querySelectorAll('.additional_income-item')[2];
+const inputBudgetDay = document.getElementsByClassName('result-total')[0];
+const inputExpensesMonth = document.getElementsByClassName('result-total')[1];
+const inputAdditionalIncome = document.getElementsByClassName('result-total')[2];
+const inputAdditionalExpenses = document.getElementsByClassName('result-total')[3];4
+const inputIncomePeriod = document.getElementsByClassName('result-total')[4];
+const inputTargetMonth = document.getElementsByClassName('result-total')[5];
+const inputBudgetMonth = document.querySelector('.result-total')[6];
 const inputSalaryAmount = document.querySelector('.salary-amount');
 const inputIncomeTitle = document.querySelector('.income-title');
 const inputIncomeAmount = document.querySelector('.income-amount');
@@ -184,7 +185,7 @@ appData.getBudget();
 appData.getInfoDeposit();
 
 
-console.log('Сумма всех обязательных расходов за месяцц:', appData.expensesMonth);
+console.log('Сумма всех обязательных расходов за месяц:', appData.expensesMonth);
 console.log(appData.getTargetMonth());
 console.log('Уровень дохода: ', appData.getStatusInHome());
 console.log('appData.addExpenses', appData.addExpenses.map(n => `${n[0].toUpperCase()}${n.slice(1)}`).join(', '));
