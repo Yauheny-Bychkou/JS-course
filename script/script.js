@@ -2,6 +2,31 @@
 
 let money; 
 let appData;
+const buttonCalculation = document.getElementById('start');
+const buttonPlusOne = document.getElementsByTagName('button')[0];
+const buttonPlusTwo = document.getElementsByTagName('button')[1];
+const checkbox = document.querySelector('#deposit-check');
+const incomeItem = document.querySelectorAll('.additional_income-item');
+const inputBudgetDay = document.getElementsByClassName('budget_day-value');
+const inputExpensesMonth = document.getElementsByClassName('expenses_month-value');
+const inputAdditionalIncome = document.getElementsByClassName('additional_income-value');
+const inputAdditionalExpenses = document.getElementsByClassName('additional_expenses-value');
+const inputIncomePeriod = document.getElementsByClassName('income_period-value');
+const inputTargetMonth = document.getElementsByClassName('target_month-value');
+const inputBudgetMonth = document.querySelector('.budget_month-value');
+const inputSalaryAmount = document.querySelector('.salary-amount');
+const inputIncomeTitle = document.querySelector('.income-title');
+const inputIncomeAmount = document.querySelector('.income-amount');
+const inputExpensesTitle = document.querySelector('.expenses-title');
+const inputExpensesAmount = document.querySelector('.expenses-amount');
+const inputAdditionalExpensesItem = document.querySelector('.additional_expenses-item');
+const inputDepositCheck = document.querySelector('#deposit-check');
+const inputDepositAmount = document.querySelector('.deposit-amount');
+const inputDepositPercent = document.querySelector('.deposit-percent');
+const inputTargetAmount = document.querySelector('.target-amount');
+const inputPeriodSelect = document.querySelector('.period-select');
+
+//const plusTwo = document.querySelectorAll('button');
 
 const isNumber = function (n){
   return !isNaN(parseFloat(n)) && isFinite(n);
