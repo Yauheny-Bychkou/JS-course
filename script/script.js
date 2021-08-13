@@ -77,6 +77,17 @@ appData = {
   addExpensesBlock: function () {
     let cloneExpensesItem = expensesItems[0].cloneNode(true);
     expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesPlus);
+    document.querySelectorAll("input[placeholder=Наименование]").forEach((input) => {
+      input.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/[A-Za-zА]/, "");
+      });
+    });
+    document.querySelectorAll("input[placeholder=Сумма]").forEach((input) => {
+      input.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/\D/, "");
+      });
+    });
+
     expensesItems = document.querySelectorAll(".expenses-items");
     let expensesTitle = document.querySelectorAll(".expenses-title");
     let expensesAmount = document.querySelectorAll(".expenses-amount");
@@ -93,6 +104,17 @@ appData = {
   addIncomeBlock: function () {
     let cloneIncomeItem = incomeItems[0].cloneNode(true);
     incomeItems[0].parentNode.insertBefore(cloneIncomeItem, incomePlus);
+    document.querySelectorAll("input[placeholder=Наименование]").forEach((input) => {
+      input.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/[A-Za-zА]/, "");
+      });
+    });
+    document.querySelectorAll("input[placeholder=Сумма]").forEach((input) => {
+      input.addEventListener("input", (e) => {
+        e.target.value = e.target.value.replace(/\D/, "");
+      });
+    });
+
     incomeItems = document.querySelectorAll(".income-items");
     let incomeTitle = document.querySelectorAll(".income-title");
     let incomeAmount = document.querySelectorAll(".income-amount");
@@ -200,21 +222,21 @@ appData = {
 };
 
 start.addEventListener("click", function () {
-  if (
-    salaryAmount.value === "" ||
-    !salaryAmount.value.match(/^\d+$/) ||
-    !incomeAmount.value.match(/^\d+$/) ||
-    !targetAmount.value.match(/^\d+$/) ||
-    incomeTitle[1].value.replace(/[А-Яа-яЁё\s]/gi, "") ||
-    additionalIncomeItem[0].value.replace(/[А-Яа-яЁё\s]/gi, "") ||
-    additionalIncomeItem[1].value.replace(/[А-Яа-яЁё\s]/gi, "") ||
-    expensesTitle[1].value.replace(/[А-Яа-яЁё\s]/gi, "")
-  ) {
-    return;
-  } else {
+  if (isNumber(salaryAmount.value)) {
     appData.start();
   }
 });
 expensesPlus.addEventListener("click", appData.addExpensesBlock);
 incomePlus.addEventListener("click", appData.addIncomeBlock);
 document.querySelector(".period-select").addEventListener("input", appData.getRange);
+
+document.querySelectorAll("input[placeholder=Наименование]").forEach((input) => {
+  input.addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/[A-Za-zА]/, "");
+  });
+});
+document.querySelectorAll("input[placeholder=Сумма]").forEach((input) => {
+  input.addEventListener("input", (e) => {
+    e.target.value = e.target.value.replace(/\D/, "");
+  });
+});
