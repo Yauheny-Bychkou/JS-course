@@ -204,7 +204,6 @@ start.addEventListener("click", function () {
     salaryAmount.value === "" ||
     !salaryAmount.value.match(/^\d+$/) ||
     !incomeAmount.value.match(/^\d+$/) ||
-    !expensesAmount.value.match(/^\d+$/) ||
     !targetAmount.value.match(/^\d+$/) ||
     incomeTitle[1].value.replace(/[А-Яа-яЁё\s]/gi, "") ||
     additionalIncomeItem[0].value.replace(/[А-Яа-яЁё\s]/gi, "") ||
