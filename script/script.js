@@ -273,11 +273,7 @@ start.addEventListener("click", function () {
   if (isNumber(salaryAmount.value)) {
     appData.start();
   }
-  document.querySelectorAll("input[type=text]").forEach((input) => {
-    input.addEventListener("input", (e) => {
-      e.target.value = "";
-    });
-  });
+
   start.style.display = "none";
   cancel.style.display = "initial";
 });
