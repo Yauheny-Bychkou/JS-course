@@ -106,6 +106,13 @@ class AppData {
       item.removeAttribute("disabled");
       item.value = "";
     });
+    depositBank.style.display = "none";
+    depositAmount.style.display = "none";
+    depositPercent.style.display = "none";
+    depositBank.value = "";
+    depositAmount.value = "";
+    depositPercent.value = "";
+    depositCheck.checked = false;
   }
   showResult() {
     budgetMonthValue.value = this.budgetMonth;
